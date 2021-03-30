@@ -1,33 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Movies from '@/views/Movies'
-import Cinema from '@/views/Cinema'
-import My from '@/views/My'
-import HotMovie from '@/views/movie/HotMovie'
-import UpcomingMovie from '@/views/movie/UpcomingMovie'
+import MoviesRouter from './routes/Movie'
+import CinemaRouter from './routes/Cinema'
+import MyRouter from './routes/My'
+
+// 获取VueRouter原型上的push
+const originalPush = VueRouter.prototype.push;
+// 对原先的push方法进行重写
+VueRouter.prototype.push = function push(location) {
+    // 在原先的代码基础上加了一个异常捕获，且并没有输出异常，所以就看不到报错了。
+    return originalPush.call(this, location).catch((err) => err);
+};
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path:'/Movies',
-    component:Movies,
-    children:[
-      {path:'/HotMovie',component:HotMovie},
-      {path:'/UpcomingMovie',component:UpcomingMovie},
-    ]
-  },
-  {
-    path:'/Cinema',component:Cinema,
-  },
-  {
-    path:'/My',component:My,
-  },
+  MoviesRouter,
+  CinemaRouter,
+  MyRouter,
   {
     path:'/',
     redirect:'/Movies',
-  }
+  },
+  { path: "*", component:()=>import('../views/NotFound') },
   // {
   //   path: '/about',
   //   name: 'About',
