@@ -5,9 +5,10 @@ import UpcomingMovie from '@/views/movie/UpcomingMovie'
 var MoviesRouter =  {
     path:'/Movies',
     component:Movies,
+    redirect:'/movie/HotMovie',
     children:[
-      {path:'/HotMovie',component:HotMovie},
-      {path:'/UpcomingMovie',component:UpcomingMovie},
+      {path:'/movie/HotMovie',component:HotMovie},
+      {path:'/movie/UpcomingMovie',component:UpcomingMovie},
     ]
 };
 export default MoviesRouter
