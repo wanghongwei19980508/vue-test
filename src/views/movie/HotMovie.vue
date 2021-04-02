@@ -1,12 +1,22 @@
 <template>
     <div>
-        <van-card v-for="item in list" :key="item.filmId"
-        num="2"
-        price="2.00"
-        desc="描述信息"
-        title="商品标题"
-        :thumb=item.poster
-        />
+        <van-card v-for="item in list" :key="item.filmId">
+            <template #title>
+                <div>{{item.name}}</div>
+            </template>
+            <template #num>
+                <div>{{item.name}}</div>
+            </template>
+            <template #price>
+                <div>{{item.name}}</div>
+            </template>
+            <template #desc>
+                <div>{{item.name}}</div>
+            </template>
+            <template #thumb>
+                <img :src=item.poster style="width:98%;height:100px;">
+            </template>
+        </van-card>
     </div>
 </template>
 <script>
