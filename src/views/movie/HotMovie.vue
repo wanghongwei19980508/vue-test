@@ -2,16 +2,16 @@
     <div>
         <van-card v-for="item in list" :key="item.filmId">
             <template #title>
-                <div>{{item.name}}</div>
+                <div>{{item.name}}<span>{{item.filmType.name}}</span></div>
             </template>
             <template #num>
-                <div>{{item.name}}</div>
+                <div>观众评分：{{item.grade && 0}}</div>
             </template>
             <template #price>
-                <div>{{item.name}}</div>
+                <div>主演：{{item.actors.name}}</div>
             </template>
             <template #desc>
-                <div>{{item.name}}</div>
+                <div>{{item.nation}} || {{item.runtime}}</div>
             </template>
             <template #thumb>
                 <img :src=item.poster style="width:98%;height:100px;">

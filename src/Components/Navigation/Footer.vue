@@ -34,14 +34,14 @@
         },
         created(){
             if(this.hrf.indexOf(this.$route.path) >= 0){
-                this.active=this.hrf.indexOf(this.$route.path)
+                this.active=this.hrf.indexOf(this.$route.path);
             }else{
                 this.active=0;
             }
         },
         methods: {
             onChange: function (index) {
-                this.$router.push({path:this.hrf[index]})
+                this.$router.push({path:this.hrf[index]});
             },
         },
     };
