@@ -5,8 +5,6 @@
   </div>
 </template>
 
-<style lang="scss">
-</style>
 
 <script>
 import Footer from "@/Components/Navigation/Footer.vue";
@@ -17,3 +15,9 @@ export default {
   },
 };
 </script>
+
+<style lang="less">
+#content {
+  margin-bottom: 50px;
+}
+</style>

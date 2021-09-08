@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import less from 'less'
 
+Vue.use(less);
 // 导入axios
 import axios from "./api/http";
 // 将axios注册到vue实例上（原型上）
