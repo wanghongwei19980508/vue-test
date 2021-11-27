@@ -1,5 +1,5 @@
 <template>
-  <van-sticky :offset-top="offsetTop">
+  <van-sticky v-show="offsetTop">
     <van-tabs v-model="active" @click="onChange">
       <van-tab title="正在热映"></van-tab>
       <van-tab title="即将上映"></van-tab>
@@ -20,7 +20,7 @@ export default {
     return {
       active: 0,
       hrf: ["/movie/HotMovie", "/movie/UpcomingMovie"],
-      offsetTop: 0,
+      offsetTop: true,
     };
   },
   created() {
@@ -29,10 +29,10 @@ export default {
   mounted() {
     window.addEventListener("scroll", () => {
       let top = document.documentElement.scrollTop;
-      if (top > 200) {
-        this.offsetTop = 0;
+      if (top > 200 || top < 50) {
+        this.offsetTop = true;
       } else {
-        this.offsetTop = -50;
+        this.offsetTop = false;
       }
     });
   },

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import MoviesRouter from './routes/Movie'
 import CinemaRouter from './routes/Cinema'
 import MyRouter from './routes/My'
+import Test from '@/views/test'
 
 // 获取VueRouter原型上的push
 const originalPush = VueRouter.prototype.push;
@@ -16,7 +17,7 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 const routes = [
-  MoviesRouter,
+  ...MoviesRouter,
   CinemaRouter,
   MyRouter,
   {
@@ -24,6 +25,9 @@ const routes = [
     redirect: '/Movies',
   },
   { path: "*", component: () => import('../views/NotFound') },
+  {
+    path: '/test',component: Test,
+  },
   // {
   //   path: '/about',
   //   name: 'About',

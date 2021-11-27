@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Footer></Footer>
+    <Footer v-show="$store.state.isFooterShow"></Footer>
     <router-view></router-view>
   </div>
 </template>

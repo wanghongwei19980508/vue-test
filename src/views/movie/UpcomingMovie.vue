@@ -46,8 +46,6 @@
 import Vue from "vue";
 import { Card, PullRefresh, Toast } from "vant";
 import url from "@/config/url";
-import BScroll from '@better-scroll/core';
-const bs = new BScroll('.div');
 
 Vue.use(Card);
 Vue.use(PullRefresh);

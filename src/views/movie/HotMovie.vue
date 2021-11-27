@@ -73,7 +73,6 @@ export default {
       });
     },
     clickCard(filmId){
-        this.offsetTop = -50
         this.$router.push("/movie/FilmDetails/" + filmId);
     }
   },
